@@ -49,7 +49,7 @@ public class RPCDecoder extends ByteToMessageDecoder {
         }
 
         // 根据序列化code获取序列化工具
-        var serializer = Serializer.getSerializer(serializerCode);
+        var serializer = SerializerCode.getSerializer(serializerCode);
         if (serializer == null) {
             log.error(RPCConstants.RPC_SERIALIZER_NOT_SUPPORT);
             throw new QRPCException(RPCConstants.RPC_SERIALIZER_NOT_SUPPORT);

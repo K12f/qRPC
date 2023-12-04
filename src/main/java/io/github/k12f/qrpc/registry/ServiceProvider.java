@@ -5,6 +5,7 @@ import com.alibaba.nacos.api.exception.NacosException;
 import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ServiceProvider {
     /**
@@ -14,8 +15,8 @@ public class ServiceProvider {
 
     private final ServiceRegister serviceRegister;
 
-    public ServiceProvider(ServiceRegister serviceRegister) throws NacosException {
-        this.interfaceProvider = new HashMap<>();
+    public ServiceProvider(ServiceRegister serviceRegister) {
+        this.interfaceProvider = new ConcurrentHashMap<>();
         this.serviceRegister = serviceRegister;
     }
 
