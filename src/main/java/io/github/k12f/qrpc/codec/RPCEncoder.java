@@ -11,6 +11,8 @@ import io.netty.handler.codec.MessageToByteEncoder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
+
 @Slf4j
 public class RPCEncoder extends MessageToByteEncoder<Object> {
 
@@ -39,7 +41,7 @@ public class RPCEncoder extends MessageToByteEncoder<Object> {
 
         var dataPack = serializer.serialize(o);
 
-        log.info("pack:" + dataPack);
+        log.info("pack:" + Arrays.toString(dataPack));
         out.writeInt(dataPack.length);
         out.writeBytes(dataPack);
     }
